@@ -5,6 +5,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{711BDA1F-E501-46A5-8A1A-4AA47D9CC082}"
 ProjectSection(SolutionItems) = preProject
 	README.md = README.md
+	.github\workflows\dotnetcore.yml = .github\workflows\dotnetcore.yml
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wd3w.TokenAuthentication.Sample", "Wd3w.TokenAuthentication.Sample\Wd3w.TokenAuthentication.Sample.csproj", "{9A980C72-A4CB-42C2-8353-279246C2F6EE}"
