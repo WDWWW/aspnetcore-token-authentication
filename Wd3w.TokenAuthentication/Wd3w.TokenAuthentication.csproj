@@ -8,7 +8,7 @@
 
     <PropertyGroup>
         <PackageId>Wd3w.AspNetCore.TokenAuthentication</PackageId>
-        <Version>3.1.0</Version>
+        <Version>3.1.1</Version>
         <Authors>Jinseoung Lee</Authors>
         <PackageTags>aspnetcore;aspnet;token;authentication</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
