@@ -2,10 +2,17 @@
 > ASP.NET Core extension for configure custom token authentication
 
 ![Build&Test](https://github.com/WDWWW/aspnetcore-token-authentication/workflows/Build&Test/badge.svg?branch=master)
+[![Nuget](https://img.shields.io/nuget/v/Wd3w.AspNetCore.TokenAuthentication)](https://www.nuget.org/packages/Wd3w.AspNetCore.TokenAuthentication/)
 
 ## Getting Start 
 
-### 1. Implement your own `CustomTokenAuthService`  
+### 1. Installation package to your project.
+
+```
+dotnet add package Wd3w.AspNetCore.TokenAuthentication
+```
+
+### 2. Implement your own `CustomTokenAuthService`  
 
 ```csharp
 public class CustomTokenAuthService : ITokenAuthService
@@ -30,7 +37,7 @@ public class CustomTokenAuthService : ITokenAuthService
 }
 ```
 
-### 2. Add custom token scheme to authentication builder using `AddTokenAuthenticationScheme<TService>` 
+### 3. Add custom token scheme to authentication builder using `AddTokenAuthenticationScheme<TService>` 
 
 ```csharp
 services.AddAuthentication("Bearer")
