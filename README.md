@@ -1,4 +1,4 @@
-# Wd3w.TokenAuthentication
+# Wd3w.AspNetCore.TokenAuthentication
 > ASP.NET Core extension for configure custom token authentication
 
 ![Build&Test](https://github.com/WDWWW/aspnetcore-token-authentication/workflows/Build&Test/badge.svg?branch=master)
