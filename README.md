@@ -6,13 +6,15 @@
 
 ## Getting Start 
 
-### 1. Installation package to your project.
+#### 1. Installation package to your project.
 
 ```
 dotnet add package Wd3w.AspNetCore.TokenAuthentication
 ```
 
-### 2. Implement your own `CustomTokenAuthService`  
+#### 2. Implement your own `CustomTokenAuthService` 
+
+Whatever your authentication infrastructure is,  just implement this interface and register it as a service.
 
 ```csharp
 public class CustomTokenAuthService : ITokenAuthService
@@ -37,7 +39,9 @@ public class CustomTokenAuthService : ITokenAuthService
 }
 ```
 
-### 3. Add custom token scheme to authentication builder using `AddTokenAuthenticationScheme<TService>` 
+#### 3. Add custom token scheme to authentication builder using `AddTokenAuthenticationScheme<TService>` 
+
+`Realm`, `TokenLength`, These property is required property for working authentication handler. 
 
 ```csharp
 services.AddAuthentication("Bearer")
@@ -49,6 +53,36 @@ services.AddAuthentication("Bearer")
     });
 ```
 
+#### 4. Attach `AuthorizeAttribute` to your controller or action methods.
+
+```c#
+[ApiController("[controller]")]
+public class SomeController : ControllerBase
+{
+    [HttpGet]
+    [Authorize]
+    public Task<ActionResult> GetSomethingAsync()
+    {
+        return Task.FromResult(Ok());
+    }
+}
+```
+
+## Features
+
+#### Custom Validation Fail Message 
+
+If you need to provide custom authentication token validation message, Just throw `AuthenticationFailException` on `ITokenAuthService.IsValidateAsync`
+
+```c#
+public class CustomTokenAuthService : ITokenAuthService
+{
+    public async Task<bool> IsValidateAsync(string token)
+    {
+        throw new AuthenticationFailException("invalid_format", "access token couldn't have any special characters.");
+    }
+}
+```
 
 ## Versioning
 

@@ -8,17 +8,17 @@ using Xunit;
 
 namespace Wd3w.TokenAuthentication.Test
 {
-    public class UnitTest1j : IClassFixture<WebApplicationFactory<Startup>>
+    public class IntegrationTest : IClassFixture<WebApplicationFactory<Startup>>
     {
         private readonly WebApplicationFactory<Startup> _factory;
 
-        public UnitTest1j(WebApplicationFactory<Startup> factory)
+        public IntegrationTest(WebApplicationFactory<Startup> factory)
         {
             _factory = factory;
         }
 
         [Fact]
-        public async Task Test1()
+        public async Task PublicApiTest()
         {
             var httpClient = _factory.CreateClient();
 
@@ -28,7 +28,7 @@ namespace Wd3w.TokenAuthentication.Test
         }
 
         [Fact]
-        public async Task Test2()
+        public async Task AuthorizeApiUnauthorizedTest()
         {
             var httpClient = _factory.CreateClient();
 
@@ -38,7 +38,7 @@ namespace Wd3w.TokenAuthentication.Test
         }
 
         [Fact]
-        public async Task Test3()
+        public async Task AuthorizeApiOkTest()
         {
             var httpClient = _factory.CreateClient();
 

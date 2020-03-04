@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Net;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
@@ -61,8 +62,15 @@ namespace Wd3w.TokenAuthentication
                 return Fail("invalid_token_length", $"Access Token`s length must be {Options.TokenLength}");
             
             var accessToken = authPair[1];
-            if (!await _authService.IsValidateAsync(accessToken))
-                return Fail("invalid_token", $"{scheme} Token({accessToken}) is invalid");
+            try
+            {
+                if (!await _authService.IsValidateAsync(accessToken))
+                    return Fail("invalid_token", $"{scheme} Token({accessToken}) is invalid");
+            }
+            catch (AuthenticationFailException e)
+            {
+                return AuthenticateResult.Fail(e);
+            }
 
             var claimsPrincipal = await _authService.GetPrincipalAsync(accessToken);
             var wrapPrincipal = new ClaimsPrincipal(new ClaimsIdentity(claimsPrincipal.Claims, Options.AuthenticationType ?? scheme));
