@@ -3,6 +3,26 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <OutputType>Library</OutputType>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>Wd3w.AspNetCore.TokenAuthentication</PackageId>
+        <Version>3.1.0</Version>
+        <Authors>Jinseoung Lee</Authors>
+        <PackageTags>aspnetcore;aspnet;token;authentication</PackageTags>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageProjectUrl>https://github.com/WDWWW/aspnetcore-token-authentication</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/enif-lee/grpc-dotnet-validator/blob/master/LICENSE</PackageLicenseUrl>
+        <DocumentationFile>bin\Debug\Wd3w.TokenAuthentication.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\Wd3w.TokenAuthentication.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\Wd3w.TokenAuthentication.xml</DocumentationFile>
     </PropertyGroup>
 
 </Project>
